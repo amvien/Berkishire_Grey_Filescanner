@@ -83,6 +83,6 @@ def check_file(filepath, regex, size_bytes):
 
 
 if __name__ == '__main__':
-    paths = main(path,regex, btyes)
+    paths = main(path,regex, bytes)
 
     for p in paths: print(p)
