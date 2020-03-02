@@ -85,7 +85,7 @@ def check_file(filepath, regex, size_bytes):
     elif not check_bytes and check_regex:  # regex check
         valid = regex.search(filepath.name) is not None
     elif check_bytes and check_regex:  # bytes and regex check
-        valid = (filepath.lstat().st_size > size_bytes) and (regex.search(filepath.name) is not None)
+        valid = (filepath.lstat().st_size >= size_bytes) and (regex.search(filepath.name) is not None)
     else:  # pass all
         valid = True
 
