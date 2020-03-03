@@ -40,6 +40,8 @@ def verify_regex(regex):
         is_valid = True
     except re.error:
         is_valid = False
+    except TypeError:
+        is_valid = False
 
     if (not is_valid) or (regex == ''):
         regex = ''
@@ -53,7 +55,7 @@ def verify_size(size_bytes):
     try:
         size_bytes = int(size_bytes)
     except ValueError:
-        Exception('Invalid entry for size restriction, enter a valid integer')
+        raise ValueError('Invalid entry for size restriction, enter a valid integer')
 
     if size_bytes < 0:
         size_bytes = 0
@@ -86,8 +88,10 @@ def check_file(filepath, regex, size_bytes):
         valid = regex.search(filepath.name) is not None
     elif check_bytes and check_regex:  # bytes and regex check
         valid = (filepath.lstat().st_size >= size_bytes) and (regex.search(filepath.name) is not None)
-    else:  # pass all
+    elif filepath.exists():  # pass all
         valid = True
+    else:
+        valid = False
 
     return valid
 

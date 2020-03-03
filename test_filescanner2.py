@@ -1,7 +1,7 @@
 from pyfakefs.fake_filesystem_unittest import TestCase
 import unittest
 from unittest import mock
-import filescanner
+import filescanner2 as filescanner
 
 
 class TestFileScanner(TestCase):
@@ -16,7 +16,7 @@ class TestFileScanner(TestCase):
         self.fs.create_file(file, contents='test')
         self.assertEqual(filescanner.main(path, '', 0), [file])
 
-    @mock.patch('filescanner.input', create=True)
+    @mock.patch('filescanner2.input', create=True)
     def test_verify_path(self, mocked_input):
         from pathlib import Path
         path = '/root/testfolder'

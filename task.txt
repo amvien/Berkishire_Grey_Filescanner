@@ -2,13 +2,13 @@
     Write a python script to recurse a given directory location and return a list of files whose names match a regex
     (or maybe just whose size is > than some number)
         - filescanner.py
+        - regex and size limits
     Write unit tests for the above.  Demonstrate your code coverage and justify it (i.e. why is this good enough)
         - python -m unittest test_filescanner.py
-        - coverage run --source unittest test_filescanner.py
+        - 97% coverage - exception to the code for running at top-level
+            coverage run -m unittest test_filescanner.py
             coverage report -m
     Demonstrate execution time.  How might this be improved
-        -
-        - spliting operations over threads.
-         using ready-built modules (os.walk).
-          interacting with os filesystem directly (more error prone)
+        - os.walk 6x faster than listdir solution
+        - spliting operations over threads using listdir.
 
