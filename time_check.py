@@ -1,10 +1,8 @@
-import filescanner
 import filescanner2
 import timeit
 
-from pathlib import Path
-
+test_dir = r'/home/example'
 num = 25
-print('Total items: ', len(filescanner2.main(r'D:\Anime To watch Pronto')))
-print(timeit.timeit("""filescanner.main(r'D:\Anime To watch Pronto')""", 'import filescanner', number=num)/num, ' s')
-print(timeit.timeit("""filescanner2.main(r'D:\Anime To watch Pronto')""", 'import filescanner2', number=num)/num, ' s')
+print('Total items: ', len(filescanner2.main(test_dir)))
+print(timeit.timeit(f"""filescanner.main(r'{test_dir}')""", 'import filescanner', number=num)/num, ' s')
+print(timeit.timeit(f"""filescanner2.main(r'{test_dir}')""", 'import filescanner2', number=num)/num, ' s')

@@ -2,7 +2,7 @@ import os
 import re
 import pathlib
 
-path = '.' #pathlib.Path(r'D:\Anime To watch Pronto')
+path = '.' #pathlib.Path(r'/home/example')
 regex = '.mp4'
 bytes = 200*1000*1000
 
